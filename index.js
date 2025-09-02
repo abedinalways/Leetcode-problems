@@ -25,3 +25,41 @@ function matched(marks, target) {
 }
 console.log(matched(marks, target));
 
+//palindrome number
+let x = 767;
+function isPalindrome(x) {
+    let x1 = x.toString();
+    let reversed = x1.split('').reverse().join('');
+    if (x1 === reversed) {
+        return true
+    } else {
+        return false
+    }
+}
+console.log(isPalindrome(x))
+
+//Roman to Integer
+let romanTointeger = function (s) {
+    let romanValue = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    }
+    let total = 0;
+    for (let i = 0; i < s.length; i++){
+        let currentValue = romanValue[s[i]];
+        let nextValue = romanValue[s[i + 1]];
+        if (nextValue > currentValue) {
+            total += nextValue - currentValue;
+            i++;
+        } else {
+            total += currentValue;
+        }
+    }
+    return total;
+}
+console.log(romanTointeger('MCMXCIV'));
